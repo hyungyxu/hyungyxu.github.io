@@ -1,7 +1,49 @@
-<!DOCTYPE hyml>
-<html>
-<body>
-  <h1>안녕하세요, 제 홈페이지입니다</h1>
-  <p>GitHub Pages로 만들었습니다!</p>
-</body>
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="hyungyxu의 개인 홈페이지" />
+    <title>hyungyxu · Personal Page</title>
+    <style>
+      :root { --ink:#172033; --muted:#61708a; --paper:#f8f7f3; --card:rgba(255,255,255,.76); --accent:#2b59c3; --accent-soft:#dce8ff; --line:rgba(23,32,51,.1); }
+      * { box-sizing:border-box; }
+      body { margin:0; color:var(--ink); background:radial-gradient(circle at 8% 8%,#dfeaff 0,transparent 28rem),radial-gradient(circle at 92% 20%,#ffe6be 0,transparent 24rem),var(--paper); font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif; line-height:1.6; }
+      .wrap { width:min(1080px,calc(100% - 40px)); margin:0 auto; }
+      nav { display:flex; justify-content:space-between; align-items:center; padding:28px 0; }
+      .brand { font-size:1.1rem; font-weight:800; letter-spacing:-.03em; } .status { color:var(--muted); font-size:.9rem; }
+      main { padding:58px 0 86px; } .hero { display:grid; grid-template-columns:1.3fr .7fr; align-items:end; gap:40px; min-height:400px; }
+      .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:7px 12px; color:#21489e; background:var(--accent-soft); border-radius:999px; font-size:.88rem; font-weight:700; }
+      .dot { width:8px; height:8px; border-radius:50%; background:#4cbd7b; }
+      h1 { max-width:700px; margin:20px 0; font-size:clamp(3rem,8vw,6.5rem); line-height:1.02; letter-spacing:-.075em; }
+      .intro { max-width:570px; margin:0; color:var(--muted); font-size:1.15rem; }
+      .profile-card { padding:28px; background:var(--card); border:1px solid rgba(255,255,255,.85); border-radius:28px; box-shadow:0 20px 50px rgba(40,58,95,.12); backdrop-filter:blur(12px); }
+      .avatar { display:grid; place-items:center; width:74px; height:74px; margin-bottom:18px; border-radius:24px; color:white; background:linear-gradient(135deg,#2b59c3,#7d9cf2); font-size:1.6rem; font-weight:800; }
+      .profile-card h2 { margin:0; font-size:1.25rem; } .profile-card p { margin:5px 0 0; color:var(--muted); }
+      section { margin-top:92px; } .section-title { margin:0 0 22px; font-size:.95rem; letter-spacing:.08em; text-transform:uppercase; }
+      .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; } .card { min-height:190px; padding:24px; background:var(--card); border:1px solid var(--line); border-radius:22px; }
+      .card .number { color:var(--accent); font-size:.9rem; font-weight:800; } .card h3 { margin:28px 0 7px; font-size:1.2rem; } .card p { margin:0; color:var(--muted); font-size:.96rem; }
+      .note { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:30px; border-radius:24px; background:var(--ink); color:white; } .note h2 { margin:0; font-size:1.35rem; } .note p { margin:5px 0 0; color:#bbc6db; }
+      .note a { flex:0 0 auto; padding:11px 16px; border-radius:12px; color:var(--ink); background:white; font-weight:800; text-decoration:none; } footer { padding:0 0 36px; color:var(--muted); font-size:.88rem; }
+      @media (max-width:720px) { .hero,.grid { grid-template-columns:1fr; } .hero { gap:34px; padding-top:20px; } main { padding-top:26px; } .note { align-items:flex-start; flex-direction:column; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav><div class="brand">hyungyxu</div><div class="status">Personal page · 2026</div></nav>
+      <main>
+        <section class="hero">
+          <div><div class="eyebrow"><span class="dot"></span> 새로운 것을 만드는 중</div><h1>안녕하세요.<br />hyungyxu입니다.</h1><p class="intro">코딩을 배우며 생각을 웹으로 옮기고 있습니다. 이곳에 제가 만든 작은 프로젝트와 배움의 기록을 차곡차곡 담아갈 예정입니다.</p></div>
+          <aside class="profile-card"><div class="avatar">H</div><h2>처음부터, 천천히</h2><p>좋은 질문을 하고 직접 만들어 보면서 성장합니다.</p></aside>
+        </section>
+        <section><h2 class="section-title">Now</h2><div class="grid">
+          <article class="card"><div class="number">01</div><h3>웹 만들기</h3><p>HTML과 CSS로 나만의 웹페이지를 만들고 있어요.</p></article>
+          <article class="card"><div class="number">02</div><h3>꾸준히 배우기</h3><p>작게 시작하고, 매일 조금씩 더 나아가고 있습니다.</p></article>
+          <article class="card"><div class="number">03</div><h3>기록 남기기</h3><p>새로 만든 것과 배운 것을 이 페이지에 소개할 예정입니다.</p></article>
+        </div></section>
+        <section class="note"><div><h2>방문해 주셔서 감사합니다.</h2><p>이 페이지는 계속 조금씩 달라질 거예요.</p></div><a href="https://github.com/hyungyxu" target="_blank" rel="noreferrer">GitHub 보기 ↗</a></section>
+      </main>
+      <footer>© 2026 hyungyxu. Built with GitHub Pages.</footer>
+    </div>
+  </body>
 </html>
