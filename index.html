@@ -3,47 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="hyungyxu의 개인 홈페이지" />
-    <title>hyungyxu · Personal Page</title>
+    <meta name="description" content="hyungyxu의 귤빛 개인 홈페이지" />
+    <title>hyungyxu · Tangerine Days</title>
     <style>
-      :root { --ink:#172033; --muted:#61708a; --paper:#f8f7f3; --card:rgba(255,255,255,.76); --accent:#2b59c3; --accent-soft:#dce8ff; --line:rgba(23,32,51,.1); }
+      :root { --orange:#ff7a00; --deep:#bd3900; --cream:#fff4df; --ink:#381400; --yellow:#ffca28; }
       * { box-sizing:border-box; }
-      body { margin:0; color:var(--ink); background:radial-gradient(circle at 8% 8%,#dfeaff 0,transparent 28rem),radial-gradient(circle at 92% 20%,#ffe6be 0,transparent 24rem),var(--paper); font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif; line-height:1.6; }
-      .wrap { width:min(1080px,calc(100% - 40px)); margin:0 auto; }
-      nav { display:flex; justify-content:space-between; align-items:center; padding:28px 0; }
-      .brand { font-size:1.1rem; font-weight:800; letter-spacing:-.03em; } .status { color:var(--muted); font-size:.9rem; }
-      main { padding:58px 0 86px; } .hero { display:grid; grid-template-columns:1.3fr .7fr; align-items:end; gap:40px; min-height:400px; }
-      .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:7px 12px; color:#21489e; background:var(--accent-soft); border-radius:999px; font-size:.88rem; font-weight:700; }
-      .dot { width:8px; height:8px; border-radius:50%; background:#4cbd7b; }
-      h1 { max-width:700px; margin:20px 0; font-size:clamp(3rem,8vw,6.5rem); line-height:1.02; letter-spacing:-.075em; }
-      .intro { max-width:570px; margin:0; color:var(--muted); font-size:1.15rem; }
-      .profile-card { padding:28px; background:var(--card); border:1px solid rgba(255,255,255,.85); border-radius:28px; box-shadow:0 20px 50px rgba(40,58,95,.12); backdrop-filter:blur(12px); }
-      .avatar { display:grid; place-items:center; width:74px; height:74px; margin-bottom:18px; border-radius:24px; color:white; background:linear-gradient(135deg,#2b59c3,#7d9cf2); font-size:1.6rem; font-weight:800; }
-      .profile-card h2 { margin:0; font-size:1.25rem; } .profile-card p { margin:5px 0 0; color:var(--muted); }
-      section { margin-top:92px; } .section-title { margin:0 0 22px; font-size:.95rem; letter-spacing:.08em; text-transform:uppercase; }
-      .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; } .card { min-height:190px; padding:24px; background:var(--card); border:1px solid var(--line); border-radius:22px; }
-      .card .number { color:var(--accent); font-size:.9rem; font-weight:800; } .card h3 { margin:28px 0 7px; font-size:1.2rem; } .card p { margin:0; color:var(--muted); font-size:.96rem; }
-      .note { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:30px; border-radius:24px; background:var(--ink); color:white; } .note h2 { margin:0; font-size:1.35rem; } .note p { margin:5px 0 0; color:#bbc6db; }
-      .note a { flex:0 0 auto; padding:11px 16px; border-radius:12px; color:var(--ink); background:white; font-weight:800; text-decoration:none; } footer { padding:0 0 36px; color:var(--muted); font-size:.88rem; }
-      @media (max-width:720px) { .hero,.grid { grid-template-columns:1fr; } .hero { gap:34px; padding-top:20px; } main { padding-top:26px; } .note { align-items:flex-start; flex-direction:column; } }
+      html { scroll-behavior:smooth; }
+      body { margin:0; overflow-x:hidden; color:var(--ink); background:var(--orange); font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif; }
+      .orb { position:fixed; z-index:-1; width:26rem; height:26rem; border-radius:50%; filter:blur(2px); opacity:.55; pointer-events:none; }
+      .orb.one { top:-10rem; left:-8rem; background:#ffc329; animation:drift 12s ease-in-out infinite alternate; }
+      .orb.two { right:-12rem; top:26rem; background:#ef4a00; animation:drift 15s -5s ease-in-out infinite alternate-reverse; }
+      .wrap { width:min(1120px,calc(100% - 40px)); margin:auto; }
+      nav { display:flex; justify-content:space-between; align-items:center; padding:28px 0; color:var(--cream); }
+      .brand { font-size:1.22rem; font-weight:900; letter-spacing:-.05em; } .nav-note { font-size:.9rem; font-weight:700; }
+      .hero { display:grid; grid-template-columns:1.05fr .95fr; min-height:610px; align-items:center; gap:30px; }
+      .tag { display:inline-block; padding:8px 13px; border:1px solid rgba(255,255,255,.5); border-radius:99px; color:white; font-size:.85rem; font-weight:800; backdrop-filter:blur(8px); }
+      h1 { margin:20px 0 17px; color:var(--cream); font-size:clamp(4rem,10vw,8.5rem); line-height:.88; letter-spacing:-.095em; }
+      .intro { max-width:540px; margin:0; color:#fff0d4; font-size:clamp(1rem,2vw,1.18rem); font-weight:600; line-height:1.75; }
+      .fruit-stage { position:relative; height:440px; display:grid; place-items:center; perspective:900px; }
+      .tangerine { position:relative; width:285px; height:285px; border-radius:48% 52% 49% 51%; background:radial-gradient(circle at 34% 28%,#ffd66a 0 2%,#ffad18 3% 13%,#ff7e00 42%,#e94c00 100%); box-shadow:inset -24px -26px 38px rgba(173,45,0,.28), inset 16px 18px 24px rgba(255,235,139,.3), 0 35px 45px rgba(107,31,0,.32); transform-style:preserve-3d; animation:fruit-float 5s ease-in-out infinite; }
+      .tangerine::before { content:""; position:absolute; top:-28px; left:108px; width:68px; height:47px; border-radius:100% 0 100% 0; background:#4a8c24; transform:rotate(-24deg); box-shadow:10px 4px 0 #327014; }
+      .tangerine::after { content:""; position:absolute; inset:14px; border-radius:inherit; border:2px dotted rgba(255,230,138,.34); }
+      .slice { position:absolute; right:10px; bottom:36px; width:156px; height:156px; border:12px solid #f36a00; border-radius:50%; background:repeating-conic-gradient(from 8deg,#ffd56b 0 28deg,#fff0ad 29deg 31deg); box-shadow:0 19px 24px rgba(103,30,0,.23); transform:rotate(-16deg); animation:spin 16s linear infinite; }
+      .spark { position:absolute; border-radius:50%; background:#fff5c9; box-shadow:0 0 16px #fff2af; animation:blink 2.6s ease-in-out infinite; } .spark.a { width:12px;height:12px;top:78px;right:55px; } .spark.b { width:8px;height:8px;bottom:92px;left:42px;animation-delay:-1s; } .spark.c { width:17px;height:17px;top:150px;left:18px;animation-delay:-1.8s; }
+      .marquee { overflow:hidden; margin:25px 0 100px; padding:16px 0; border-top:1px solid rgba(255,242,213,.44); border-bottom:1px solid rgba(255,242,213,.44); color:#fff4df; white-space:nowrap; font-size:1.2rem; font-weight:900; letter-spacing:.04em; }
+      .marquee span { display:inline-block; animation:marquee 18s linear infinite; }
+      .content { padding-bottom:92px; }
+      .section-head { display:flex; align-items:end; justify-content:space-between; margin-bottom:22px; color:var(--cream); } .section-head h2 { margin:0; font-size:2rem; letter-spacing:-.06em; } .section-head p { margin:0; font-weight:700; }
+      .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+      .card { min-height:220px; padding:25px; border-radius:28px; background:var(--cream); box-shadow:0 13px 0 rgba(155,47,0,.2); transition:transform .35s ease,box-shadow .35s ease; } .card:hover { transform:translateY(-11px) rotate(-1.5deg); box-shadow:0 24px 0 rgba(155,47,0,.18); }
+      .card .emoji { font-size:2rem; } .card h3 { margin:30px 0 7px; font-size:1.25rem; letter-spacing:-.04em; } .card p { margin:0; color:#7f471d; line-height:1.6; }
+      .message { display:flex; justify-content:space-between; gap:24px; align-items:center; margin-top:72px; padding:32px; border-radius:30px; background:#ffcd3d; box-shadow:0 13px 0 rgba(155,47,0,.2); } .message h2 { margin:0; font-size:1.6rem; letter-spacing:-.05em; } .message p { margin:5px 0 0; color:#7c3300; font-weight:600; }
+      .button { display:inline-block; padding:13px 19px; border-radius:14px; background:var(--ink); color:white; text-decoration:none; font-weight:800; white-space:nowrap; transition:transform .2s; } .button:hover { transform:scale(1.06) rotate(-2deg); }
+      footer { padding:0 0 35px; color:#ffe6bd; font-size:.88rem; font-weight:600; }
+      @keyframes fruit-float { 50% { transform:translateY(-22px) rotate(5deg); } } @keyframes drift { to { transform:translate(100px,60px) scale(1.18); } } @keyframes spin { to { transform:rotate(344deg); } } @keyframes blink { 50% { transform:scale(.45); opacity:.3; } } @keyframes marquee { to { transform:translateX(-50%); } }
+      @media (max-width:720px) { .hero,.cards { grid-template-columns:1fr; } .hero { padding:40px 0 5px; } .fruit-stage { height:350px; } .tangerine { transform:scale(.78); } .message { align-items:flex-start; flex-direction:column; } .nav-note { display:none; } }
+      @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; } }
     </style>
   </head>
   <body>
+    <div class="orb one"></div><div class="orb two"></div>
     <div class="wrap">
-      <nav><div class="brand">hyungyxu</div><div class="status">Personal page · 2026</div></nav>
+      <nav><div class="brand">🍊 hyungyxu</div><div class="nav-note">Tangerine days · 2026</div></nav>
       <main>
         <section class="hero">
-          <div><div class="eyebrow"><span class="dot"></span> 새로운 것을 만드는 중</div><h1>안녕하세요.<br />hyungyxu입니다.</h1><p class="intro">코딩을 배우며 생각을 웹으로 옮기고 있습니다. 이곳에 제가 만든 작은 프로젝트와 배움의 기록을 차곡차곡 담아갈 예정입니다.</p></div>
-          <aside class="profile-card"><div class="avatar">H</div><h2>처음부터, 천천히</h2><p>좋은 질문을 하고 직접 만들어 보면서 성장합니다.</p></aside>
+          <div><span class="tag">SUNNY PERSONAL PAGE</span><h1>귤처럼<br />상큼하게.</h1><p class="intro">코딩을 배우며 매일 한 조각씩 새로운 것을 만들고 있습니다. 이곳에는 저의 작은 프로젝트와 반짝이는 배움의 기록이 담길 거예요.</p></div>
+          <div class="fruit-stage"><div class="tangerine"></div><div class="slice"></div><i class="spark a"></i><i class="spark b"></i><i class="spark c"></i></div>
         </section>
-        <section><h2 class="section-title">Now</h2><div class="grid">
-          <article class="card"><div class="number">01</div><h3>웹 만들기</h3><p>HTML과 CSS로 나만의 웹페이지를 만들고 있어요.</p></article>
-          <article class="card"><div class="number">02</div><h3>꾸준히 배우기</h3><p>작게 시작하고, 매일 조금씩 더 나아가고 있습니다.</p></article>
-          <article class="card"><div class="number">03</div><h3>기록 남기기</h3><p>새로 만든 것과 배운 것을 이 페이지에 소개할 예정입니다.</p></article>
-        </div></section>
-        <section class="note"><div><h2>방문해 주셔서 감사합니다.</h2><p>이 페이지는 계속 조금씩 달라질 거예요.</p></div><a href="https://github.com/hyungyxu" target="_blank" rel="noreferrer">GitHub 보기 ↗</a></section>
+        <div class="marquee"><span>🍊 TANGERINE DAYS · MAKE SOMETHING BRIGHT · KEEP LEARNING · &nbsp; 🍊 TANGERINE DAYS · MAKE SOMETHING BRIGHT · KEEP LEARNING · &nbsp;</span></div>
+        <section class="content"><div class="section-head"><h2>오늘의 한 조각</h2><p>slowly, brightly</p></div><div class="cards">
+          <article class="card"><div class="emoji">💻</div><h3>웹 만들기</h3><p>HTML과 CSS를 배우며 나만의 화면을 만들어 보고 있어요.</p></article>
+          <article class="card"><div class="emoji">🌱</div><h3>매일 배우기</h3><p>작은 시도와 실패를 거듭하며 한 걸음씩 성장합니다.</p></article>
+          <article class="card"><div class="emoji">✍️</div><h3>기록 남기기</h3><p>새로 만든 것과 배운 것들을 이곳에 차곡차곡 쌓아갈게요.</p></article>
+        </div><div class="message"><div><h2>방문해 주셔서 감사합니다!</h2><p>다음에는 어떤 이야기를 담아 볼까요?</p></div><a class="button" href="https://github.com/hyungyxu" target="_blank" rel="noreferrer">GitHub 보기 ↗</a></div></section>
       </main>
-      <footer>© 2026 hyungyxu. Built with GitHub Pages.</footer>
+      <footer>© 2026 hyungyxu · Made with a little sunshine.</footer>
     </div>
   </body>
 </html>
