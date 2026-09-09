@@ -20,6 +20,7 @@
       .tag { display:inline-block; padding:8px 13px; border:1px solid rgba(255,255,255,.5); border-radius:99px; color:white; font-size:.85rem; font-weight:800; backdrop-filter:blur(8px); }
       h1 { margin:20px 0 17px; color:var(--cream); font-size:clamp(4rem,10vw,8.5rem); line-height:.88; letter-spacing:-.095em; }
       .intro { max-width:540px; margin:0; color:#fff0d4; font-size:clamp(1rem,2vw,1.18rem); font-weight:600; line-height:1.75; }
+      .name-highlight { display:inline-block; padding:0 8px; border-radius:8px; color:var(--deep); background:#ffdc65; font-weight:900; letter-spacing:-.03em; transform:rotate(-2deg); }
       .fruit-stage { position:relative; height:440px; display:grid; place-items:center; perspective:900px; }
       .tangerine { position:relative; width:285px; height:285px; border-radius:48% 52% 49% 51%; background:radial-gradient(circle at 34% 28%,#ffd66a 0 2%,#ffad18 3% 13%,#ff7e00 42%,#e94c00 100%); box-shadow:inset -24px -26px 38px rgba(173,45,0,.28), inset 16px 18px 24px rgba(255,235,139,.3), 0 35px 45px rgba(107,31,0,.32); transform-style:preserve-3d; animation:fruit-float 5s ease-in-out infinite; }
       .tangerine::before { content:""; position:absolute; top:-28px; left:108px; width:68px; height:47px; border-radius:100% 0 100% 0; background:#4a8c24; transform:rotate(-24deg); box-shadow:10px 4px 0 #327014; }
@@ -47,7 +48,7 @@
       <nav><div class="brand">🍊 hyungyxu</div><div class="nav-note">Tangerine days · 2026</div></nav>
       <main>
         <section class="hero">
-          <div><span class="tag">SUNNY PERSONAL PAGE</span><h1>귤처럼<br />상큼하게.</h1><p class="intro">hyungyxu는 코딩을 배우며 매일 한 조각씩 새로운 것을 만들고 있습니다. 이곳에는 저의 작은 프로젝트와 반짝이는 배움의 기록이 담길 거예요.</p></div>
+          <div><span class="tag">SUNNY PERSONAL PAGE</span><h1>귤처럼<br />상큼하게.</h1><p class="intro"><strong class="name-highlight">hyungyxu</strong>는 코딩을 배우며 매일 한 조각씩 새로운 것을 만들고 있습니다. 이곳에는 저의 작은 프로젝트와 반짝이는 배움의 기록이 담길 거예요.</p></div>
           <div class="fruit-stage"><div class="tangerine"></div><div class="slice"></div><i class="spark a"></i><i class="spark b"></i><i class="spark c"></i></div>
         </section>
         <div class="marquee"><span>🍊 TANGERINE DAYS · MAKE SOMETHING BRIGHT · KEEP LEARNING · &nbsp; 🍊 TANGERINE DAYS · MAKE SOMETHING BRIGHT · KEEP LEARNING · &nbsp;</span></div>
