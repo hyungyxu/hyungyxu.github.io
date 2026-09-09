@@ -3,62 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="hyungyxu의 귤빛 개인 홈페이지" />
-    <title>hyungyxu · Tangerine Days</title>
+    <meta name="description" content="hyungyxu의 개인 소개 홈페이지" />
+    <title>hyungyxu · About me</title>
     <style>
-      :root { --orange:#ff7a00; --deep:#bd3900; --cream:#fff4df; --ink:#381400; --yellow:#ffca28; }
-      * { box-sizing:border-box; }
-      html { scroll-behavior:smooth; }
-      body { margin:0; overflow-x:hidden; color:var(--ink); background:var(--orange); font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif; }
-      .orb { position:fixed; z-index:-1; width:26rem; height:26rem; border-radius:50%; filter:blur(2px); opacity:.55; pointer-events:none; }
-      .orb.one { top:-10rem; left:-8rem; background:#ffc329; animation:drift 12s ease-in-out infinite alternate; }
-      .orb.two { right:-12rem; top:26rem; background:#ef4a00; animation:drift 15s -5s ease-in-out infinite alternate-reverse; }
-      .wrap { width:min(1120px,calc(100% - 40px)); margin:auto; }
-      nav { display:flex; justify-content:space-between; align-items:center; padding:28px 0; color:var(--cream); }
-      .brand { font-size:1.22rem; font-weight:900; letter-spacing:-.05em; } .nav-note { font-size:.9rem; font-weight:700; }
-      .hero { display:grid; grid-template-columns:1.05fr .95fr; min-height:610px; align-items:center; gap:30px; }
-      .tag { display:inline-block; padding:8px 13px; border:1px solid rgba(255,255,255,.5); border-radius:99px; color:white; font-size:.85rem; font-weight:800; backdrop-filter:blur(8px); }
-      h1 { margin:20px 0 17px; color:var(--cream); font-size:clamp(4rem,10vw,8.5rem); line-height:.88; letter-spacing:-.095em; }
-      .intro { max-width:540px; margin:0; color:#fff0d4; font-size:clamp(1rem,2vw,1.18rem); font-weight:600; line-height:1.75; }
-      .name-highlight { display:inline-block; padding:0 8px; border-radius:8px; color:var(--deep); background:#ffdc65; font-weight:900; letter-spacing:-.03em; transform:rotate(-2deg); }
-      .fruit-stage { position:relative; height:440px; display:grid; place-items:center; perspective:900px; }
-      .tangerine { position:relative; width:285px; height:285px; border-radius:48% 52% 49% 51%; background:radial-gradient(circle at 34% 28%,#ffd66a 0 2%,#ffad18 3% 13%,#ff7e00 42%,#e94c00 100%); box-shadow:inset -24px -26px 38px rgba(173,45,0,.28), inset 16px 18px 24px rgba(255,235,139,.3), 0 35px 45px rgba(107,31,0,.32); transform-style:preserve-3d; animation:fruit-float 5s ease-in-out infinite; }
-      .tangerine::before { content:""; position:absolute; top:-28px; left:108px; width:68px; height:47px; border-radius:100% 0 100% 0; background:#4a8c24; transform:rotate(-24deg); box-shadow:10px 4px 0 #327014; }
-      .tangerine::after { content:""; position:absolute; inset:14px; border-radius:inherit; border:2px dotted rgba(255,230,138,.34); }
-      .slice { position:absolute; right:10px; bottom:36px; width:156px; height:156px; border:12px solid #f36a00; border-radius:50%; background:repeating-conic-gradient(from 8deg,#ffd56b 0 28deg,#fff0ad 29deg 31deg); box-shadow:0 19px 24px rgba(103,30,0,.23); transform:rotate(-16deg); animation:spin 16s linear infinite; }
-      .spark { position:absolute; border-radius:50%; background:#fff5c9; box-shadow:0 0 16px #fff2af; animation:blink 2.6s ease-in-out infinite; } .spark.a { width:12px;height:12px;top:78px;right:55px; } .spark.b { width:8px;height:8px;bottom:92px;left:42px;animation-delay:-1s; } .spark.c { width:17px;height:17px;top:150px;left:18px;animation-delay:-1.8s; }
-      .marquee { overflow:hidden; margin:25px 0 100px; padding:16px 0; border-top:1px solid rgba(255,242,213,.44); border-bottom:1px solid rgba(255,242,213,.44); color:#fff4df; white-space:nowrap; font-size:1.2rem; font-weight:900; letter-spacing:.04em; }
-      .marquee span { display:inline-block; animation:marquee 18s linear infinite; }
-      .content { padding-bottom:92px; }
-      .section-head { display:flex; align-items:end; justify-content:space-between; margin-bottom:22px; color:var(--cream); } .section-head h2 { margin:0; font-size:2rem; letter-spacing:-.06em; } .section-head p { margin:0; font-weight:700; }
-      .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-      .card { min-height:220px; padding:25px; border-radius:28px; background:var(--cream); box-shadow:0 13px 0 rgba(155,47,0,.2); transition:transform .35s ease,box-shadow .35s ease; } .card:hover { transform:translateY(-11px) rotate(-1.5deg); box-shadow:0 24px 0 rgba(155,47,0,.18); }
-      .card .emoji { font-size:2rem; } .card h3 { margin:30px 0 7px; font-size:1.25rem; letter-spacing:-.04em; } .card p { margin:0; color:#7f471d; line-height:1.6; } .card-link { display:block; color:inherit; text-decoration:none; } .card-link span { display:block; margin-top:24px; color:var(--deep); font-size:.9rem; font-weight:900; transition:transform .2s ease; } .card-link:hover span { transform:translateX(5px); }
-      .message { display:flex; justify-content:space-between; gap:24px; align-items:center; margin-top:72px; padding:32px; border-radius:30px; background:#ffcd3d; box-shadow:0 13px 0 rgba(155,47,0,.2); } .message h2 { margin:0; font-size:1.6rem; letter-spacing:-.05em; } .message p { margin:5px 0 0; color:#7c3300; font-weight:600; }
-      .button { display:inline-block; padding:13px 19px; border-radius:14px; background:var(--ink); color:white; text-decoration:none; font-weight:800; white-space:nowrap; transition:transform .2s; } .button:hover { transform:scale(1.06) rotate(-2deg); }
-      footer { padding:0 0 35px; color:#ffe6bd; font-size:.88rem; font-weight:600; }
-      @keyframes fruit-float { 50% { transform:translateY(-22px) rotate(5deg); } } @keyframes drift { to { transform:translate(100px,60px) scale(1.18); } } @keyframes spin { to { transform:rotate(344deg); } } @keyframes blink { 50% { transform:scale(.45); opacity:.3; } } @keyframes marquee { to { transform:translateX(-50%); } }
-      @media (max-width:720px) { .hero,.cards { grid-template-columns:1fr; } .hero { padding:40px 0 5px; } .fruit-stage { height:350px; } .tangerine { transform:scale(.78); } .message { align-items:flex-start; flex-direction:column; } .nav-note { display:none; } }
-      @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; } }
+      :root { --ink:#18181b; --muted:#63636b; --paper:#f8f8f6; --line:#deded8; --accent:#3159d9; --soft:#e8edff; }
+      * { box-sizing:border-box; } html { scroll-behavior:smooth; }
+      body { margin:0; color:var(--ink); background:var(--paper); font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif; line-height:1.6; }
+      .wrap { width:min(1080px,calc(100% - 40px)); margin:auto; } nav { display:flex; justify-content:space-between; align-items:center; padding:28px 0; border-bottom:1px solid var(--line); }
+      .brand { font-size:1.08rem; font-weight:900; letter-spacing:-.04em; } .available { color:var(--muted); font-size:.9rem; font-weight:600; } .available::before { content:""; display:inline-block; width:8px; height:8px; margin-right:7px; border-radius:50%; background:#46a96d; }
+      main { padding:76px 0 90px; } .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:60px; align-items:end; min-height:470px; }
+      .label { color:var(--accent); font-size:.9rem; font-weight:900; letter-spacing:.08em; } h1 { max-width:720px; margin:16px 0 24px; font-size:clamp(3.5rem,8.5vw,7.4rem); line-height:.98; letter-spacing:-.09em; } h1 em { color:var(--accent); font-style:normal; }
+      .intro { max-width:590px; margin:0; color:var(--muted); font-size:1.15rem; } .profile { padding:26px; border:1px solid var(--line); border-radius:24px; background:white; }
+      .monogram { display:grid; place-items:center; width:72px; height:72px; margin-bottom:22px; border-radius:20px; color:white; background:var(--ink); font-size:1.7rem; font-weight:900; }.profile h2 { margin:0; font-size:1.15rem; }.profile p { margin:7px 0 0; color:var(--muted); }
+      section { margin-top:110px; } .section-top { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:23px; }.section-top h2 { margin:0; font-size:1.6rem; letter-spacing:-.05em; }.section-top p { margin:0; color:var(--muted); font-size:.9rem; }
+      .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }.card { display:flex; flex-direction:column; min-height:230px; padding:24px; color:inherit; border:1px solid var(--line); border-radius:20px; background:white; text-decoration:none; transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }.card:hover { transform:translateY(-7px); border-color:#aebfff; box-shadow:0 16px 30px rgba(27,46,104,.1); }.card .number { color:var(--accent); font-weight:900; }.card h3 { margin:35px 0 6px; font-size:1.25rem; letter-spacing:-.04em; }.card p { margin:0; color:var(--muted); }.arrow { margin-top:auto; padding-top:22px; color:var(--accent); font-size:.9rem; font-weight:900; }
+      .quote { display:grid; grid-template-columns:150px 1fr; gap:32px; padding:34px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }.quote span { color:var(--muted); font-size:.9rem; font-weight:800; }.quote p { max-width:760px; margin:0; font-size:clamp(1.35rem,3vw,2rem); letter-spacing:-.05em; line-height:1.4; }
+      .contact { display:flex; justify-content:space-between; align-items:center; gap:22px; padding:34px; border-radius:24px; color:white; background:var(--ink); }.contact h2 { margin:0; font-size:1.45rem; letter-spacing:-.05em; }.contact p { margin:6px 0 0; color:#c7c7cc; }.contact a { padding:12px 17px; border-radius:12px; color:var(--ink); background:white; font-weight:900; text-decoration:none; white-space:nowrap; } footer { padding:0 0 36px; color:var(--muted); font-size:.88rem; }
+      @media (max-width:720px) { .hero,.cards { grid-template-columns:1fr; }.hero { gap:35px; min-height:0; }.quote { grid-template-columns:1fr; gap:12px; }.contact { align-items:flex-start; flex-direction:column; } main { padding-top:48px; } .available { display:none; } }
     </style>
   </head>
   <body>
-    <div class="orb one"></div><div class="orb two"></div>
     <div class="wrap">
-      <nav><div class="brand">🍊 hyungyxu</div><div class="nav-note">Tangerine days · 2026</div></nav>
+      <nav><div class="brand">hyungyxu</div><div class="available">Learning and building</div></nav>
       <main>
         <section class="hero">
-          <div><span class="tag">SUNNY PERSONAL PAGE</span><h1>귤처럼<br />상큼하게.</h1><p class="intro"><strong class="name-highlight">hyungyxu</strong>는 코딩을 배우며 매일 한 조각씩 새로운 것을 만들고 있습니다. 이곳에는 저의 작은 프로젝트와 반짝이는 배움의 기록이 담길 거예요.</p></div>
-          <div class="fruit-stage"><div class="tangerine"></div><div class="slice"></div><i class="spark a"></i><i class="spark b"></i><i class="spark c"></i></div>
+          <div><div class="label">PERSONAL WEBSITE</div><h1>안녕하세요,<br /><em>hyungyxu</em>입니다.</h1><p class="intro">새로운 것을 배우고 직접 만들어 보는 과정을 좋아합니다. 웹을 통해 생각을 정리하고, 작은 아이디어를 실제 화면으로 옮기고 있습니다.</p></div>
+          <aside class="profile"><div class="monogram">H</div><h2>꾸준히 배우는 사람</h2><p>작은 시도와 기록을 쌓아 더 나은 결과를 만들고 있습니다.</p></aside>
         </section>
-        <div class="marquee"><span>🍊 TANGERINE DAYS · MAKE SOMETHING BRIGHT · KEEP LEARNING · &nbsp; 🍊 TANGERINE DAYS · MAKE SOMETHING BRIGHT · KEEP LEARNING · &nbsp;</span></div>
-        <section class="content"><div class="section-head"><h2>오늘의 한 조각</h2><p>slowly, brightly</p></div><div class="cards">
-          <a class="card card-link" href="web.html"><div class="emoji">💻</div><h3>웹 만들기</h3><p>HTML과 CSS를 배우며 나만의 화면을 만들어 보고 있어요.</p><span>자세히 보기 →</span></a>
-          <a class="card card-link" href="learning.html"><div class="emoji">🌱</div><h3>매일 배우기</h3><p>작은 시도와 실패를 거듭하며 한 걸음씩 성장합니다.</p><span>자세히 보기 →</span></a>
-          <a class="card card-link" href="notes.html"><div class="emoji">✍️</div><h3>기록 남기기</h3><p>새로 만든 것과 배운 것들을 이곳에 차곡차곡 쌓아갈게요.</p><span>자세히 보기 →</span></a>
-        </div><div class="message"><div><h2>방문해 주셔서 감사합니다!</h2><p>다음에는 어떤 이야기를 담아 볼까요?</p></div><a class="button" href="https://github.com/hyungyxu" target="_blank" rel="noreferrer">GitHub 보기 ↗</a></div></section>
+        <section><div class="section-top"><h2>지금 하고 있는 일</h2><p>Explore more</p></div><div class="cards">
+          <a class="card" href="web.html"><span class="number">01</span><h3>웹 만들기</h3><p>디자인과 코드로 나만의 화면을 만들어 봅니다.</p><span class="arrow">자세히 보기 →</span></a>
+          <a class="card" href="learning.html"><span class="number">02</span><h3>배우기</h3><p>새로운 기술을 천천히, 꾸준히 익혀가고 있습니다.</p><span class="arrow">자세히 보기 →</span></a>
+          <a class="card" href="notes.html"><span class="number">03</span><h3>기록하기</h3><p>만든 것과 배운 것을 잊지 않도록 남깁니다.</p><span class="arrow">자세히 보기 →</span></a>
+        </div></section>
+        <section class="quote"><span>MY APPROACH</span><p>"완벽한 시작보다, 오늘의 작은 시도를 믿습니다."</p></section>
+        <section class="contact"><div><h2>방문해 주셔서 감사합니다.</h2><p>저의 다음 기록도 기대해 주세요.</p></div><a href="https://github.com/hyungyxu" target="_blank" rel="noreferrer">GitHub 보기 ↗</a></section>
       </main>
-      <footer>© 2026 hyungyxu · Made with a little sunshine.</footer>
+      <footer>© 2026 hyungyxu. All rights reserved.</footer>
     </div>
   </body>
 </html>
